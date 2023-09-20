@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5go37qkugfba"]
+
+[ext_resource type="PackedScene" uid="uid://dv0c4bgdn0xtp" path="res://Recursos/Personagens/personagem.tscn" id="1_ag0gh"]
+[ext_resource type="Script" path="res://Recursos/Personagens/Inimigos/Chefes/Angel is.gd" id="2_olo3a"]
+[ext_resource type="SpriteFrames" uid="uid://b4ca2bogn14ah" path="res://Recursos/Animações/Angel is.tres" id="3_gneet"]
+
+[node name="Angel is" instance=ExtResource("1_ag0gh")]
+script = ExtResource("2_olo3a")
+nome = "Angel is"
+velocidade = 100
+"pontuação" = 1000
+
+[node name="Colisão do Golpe" parent="Área do Golpe" index="0"]
+position = Vector2(80, -27)
+
+[node name="Sprite Animado" parent="." index="3"]
+position = Vector2(-3.55271e-15, -115)
+sprite_frames = ExtResource("3_gneet")
+animation = &"Parado"
+autoplay = "Parado"

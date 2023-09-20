@@ -1,0 +1,95 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://b4pk33163kpbs"]
+
+[ext_resource type="Texture2D" uid="uid://c107ontqd0ok3" path="res://Recursos/Imagens/Sprites/Inimigo_5.png" id="1_td4n5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dird4"]
+atlas = ExtResource("1_td4n5")
+region = Rect2(0, 42, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx8oi"]
+atlas = ExtResource("1_td4n5")
+region = Rect2(41, 42, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ic6ih"]
+atlas = ExtResource("1_td4n5")
+region = Rect2(82, 42, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p50da"]
+atlas = ExtResource("1_td4n5")
+region = Rect2(0, 126, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vsxm"]
+atlas = ExtResource("1_td4n5")
+region = Rect2(0, 84, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7qtf"]
+atlas = ExtResource("1_td4n5")
+region = Rect2(0, 168, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x5x4"]
+atlas = ExtResource("1_td4n5")
+region = Rect2(0, 0, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv1ex"]
+atlas = ExtResource("1_td4n5")
+region = Rect2(0, 0, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8r7ot"]
+atlas = ExtResource("1_td4n5")
+region = Rect2(41, 0, 41, 42)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dird4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx8oi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ic6ih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx8oi")
+}],
+"loop": true,
+"name": &"Andando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p50da")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vsxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p50da")
+}],
+"loop": false,
+"name": &"Apanhando",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7qtf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x5x4")
+}],
+"loop": false,
+"name": &"Batendo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vv1ex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8r7ot")
+}],
+"loop": true,
+"name": &"Parado",
+"speed": 5.0
+}]

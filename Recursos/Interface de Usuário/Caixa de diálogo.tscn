@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo3ol0gc5jqgw"]
+
+[ext_resource type="Script" path="res://Recursos/Interface de Usuário/Caixa de diálogo.gd" id="1_grxpt"]
+
+[node name="Caixa de diálogo" type="Node"]
+script = ExtResource("1_grxpt")
+
+[node name="Borda" type="ColorRect" parent="."]
+z_index = 4
+anchors_preset = -1
+anchor_left = 0.0486111
+anchor_top = 0.0493827
+anchor_right = 0.951389
+anchor_bottom = 0.444444
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Caixa de texto" type="ColorRect" parent="Borda"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.00012
+offset_bottom = -7.99974
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Texto" type="RichTextLabel" parent="Borda/Caixa de texto"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+
+[node name="Botões" type="GridContainer" parent="Borda/Caixa de texto"]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 2
+
+[node name="Aceita" type="Button" parent="Borda/Caixa de texto/Botões"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+disabled = true
+text = "Sim"
+
+[node name="Recusa" type="Button" parent="Borda/Caixa de texto/Botões"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+disabled = true
+text = "Não"
+
+[node name="Tempo de transição" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="pressed" from="Borda/Caixa de texto/Botões/Aceita" to="." method="_on_aceita_pressed"]
+[connection signal="pressed" from="Borda/Caixa de texto/Botões/Recusa" to="." method="_on_recusa_pressed"]
+[connection signal="timeout" from="Tempo de transição" to="." method="_on_tempo_de_transição_timeout"]

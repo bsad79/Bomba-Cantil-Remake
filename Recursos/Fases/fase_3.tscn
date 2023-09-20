@@ -1,0 +1,161 @@
+[gd_scene load_steps=18 format=3 uid="uid://snl8fuybpyjs"]
+
+[ext_resource type="PackedScene" uid="uid://mv2a4da440ao" path="res://Recursos/Fases/fase_raiz.tscn" id="1_dnjrb"]
+[ext_resource type="Texture2D" uid="uid://cqhsofjui3y4h" path="res://Recursos/Imagens/Cenários/Restaurante Universitário.png" id="2_ayuh8"]
+[ext_resource type="Script" path="res://Recursos/Fases/fase_3.gd" id="2_tdcop"]
+[ext_resource type="Texture2D" uid="uid://cbxaak5ehgihi" path="res://Recursos/Imagens/Cenários/Restaurante Universitário Parte 1.png" id="3_o0d5e"]
+[ext_resource type="PackedScene" uid="uid://cruxngj61ctal" path="res://Recursos/Personagens/Jogador/Jogador.tscn" id="4_vib77"]
+[ext_resource type="PackedScene" uid="uid://cwx11v1fgbjog" path="res://Recursos/Personagens/Inimigos/Mobs/Inimigo_1.tscn" id="6_8nrd3"]
+[ext_resource type="PackedScene" uid="uid://beain7xe2ysrw" path="res://Recursos/Personagens/Inimigos/Mobs/Inimigo_2.tscn" id="7_u4uhq"]
+[ext_resource type="PackedScene" uid="uid://c8ccu73gv72x5" path="res://Recursos/Personagens/Inimigos/Mobs/Inimigo_3.tscn" id="8_bivxy"]
+[ext_resource type="PackedScene" uid="uid://cjlok15t65l8v" path="res://Recursos/Personagens/Inimigos/Mobs/Inimigo_4.tscn" id="9_ehse4"]
+[ext_resource type="PackedScene" uid="uid://f4fuarij0nj" path="res://Recursos/Personagens/Inimigos/Mobs/Inimigo_5.tscn" id="10_xemrh"]
+[ext_resource type="PackedScene" uid="uid://dbgitcskjsykr" path="res://Recursos/Personagens/Inimigos/Mobs/Inimigo_6.tscn" id="11_k17vt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7u7q5"]
+size = Vector2(1152, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tw6l"]
+size = Vector2(803.5, 86)
+
+[sub_resource type="Animation" id="Animation_iadk4"]
+resource_name = "FT em chamas"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 0.121569, 0, 0.501961)]
+}
+
+[sub_resource type="Animation" id="Animation_hh3u6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5cne4"]
+_data = {
+"FT em chamas": SubResource("Animation_iadk4"),
+"RESET": SubResource("Animation_hh3u6")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_kh3cg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1136, 72, 0, 0, 0, 0, 1144, 72, 0, 0, 0, 0, 1144, 640, 0, 0, 0, 0, 8, 640, 0, 0, 0, 0, 8, 480, 0, 0, 0, 0, 16, 480, 0, 0, 0, 0, 16, 632, 0, 0, 0, 0, 1136, 632, 0, 0, 0, 0, 1128, 72, 0, 0, 0, 0, 1136, 72)
+}
+point_count = 10
+
+[node name="Fase 3" instance=ExtResource("1_dnjrb")]
+script = ExtResource("2_tdcop")
+cena_do_inimigo1 = ExtResource("6_8nrd3")
+cena_do_inimigo2 = ExtResource("7_u4uhq")
+cena_do_inimigo3 = ExtResource("8_bivxy")
+cena_do_inimigo4 = ExtResource("9_ehse4")
+cena_do_inimigo5 = ExtResource("10_xemrh")
+cena_do_inimigo6 = ExtResource("11_k17vt")
+dialogo_selecionado = 2
+
+[node name="Imagem de fundo" parent="Elementos do cenário" index="0"]
+texture = ExtResource("2_ayuh8")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Elementos do cenário/Imagem de fundo" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elementos do cenário/Imagem de fundo/StaticBody2D" index="0"]
+position = Vector2(576, 28.5)
+shape = SubResource("RectangleShape2D_7u7q5")
+
+[node name="Componentes extras" type="TextureRect" parent="Elementos do cenário" index="1"]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_o0d5e")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Mesa 1" type="StaticBody2D" parent="Elementos do cenário/Componentes extras" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elementos do cenário/Componentes extras/Mesa 1" index="0"]
+position = Vector2(490, 189)
+shape = SubResource("RectangleShape2D_3tw6l")
+
+[node name="Mesa 2" type="StaticBody2D" parent="Elementos do cenário/Componentes extras" index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elementos do cenário/Componentes extras/Mesa 2" index="0"]
+position = Vector2(490, 372)
+shape = SubResource("RectangleShape2D_3tw6l")
+
+[node name="Animação de fogo" type="AnimationPlayer" parent="." index="4"]
+root_node = NodePath("../Fogo")
+libraries = {
+"": SubResource("AnimationLibrary_5cne4")
+}
+
+[node name="Fogo" type="ColorRect" parent="." index="5"]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Jogador" parent="Área dos personagens" index="0" instance=ExtResource("4_vib77")]
+position = Vector2(560, 600)
+scale = Vector2(0.5, 0.5)
+
+[node name="Inimigo" parent="Área dos personagens" index="1" instance=ExtResource("6_8nrd3")]
+position = Vector2(56, 600)
+scale = Vector2(0.5, 0.5)
+
+[node name="Inimigo2" parent="Área dos personagens" index="2" instance=ExtResource("7_u4uhq")]
+position = Vector2(1048, 576)
+scale = Vector2(0.5, 0.5)
+
+[node name="Inimigo4" parent="Área dos personagens" index="3" instance=ExtResource("8_bivxy")]
+position = Vector2(976, 496)
+scale = Vector2(0.5, 0.5)
+
+[node name="Inimigo3" parent="Área dos personagens" index="4" instance=ExtResource("9_ehse4")]
+position = Vector2(200, 608)
+scale = Vector2(0.5, 0.5)
+
+[node name="Inimigo5" parent="Área dos personagens" index="5" instance=ExtResource("10_xemrh")]
+position = Vector2(128, 506)
+scale = Vector2(0.5, 0.5)
+
+[node name="Inimigo6" parent="Área dos personagens" index="6" instance=ExtResource("11_k17vt")]
+position = Vector2(1050, 448)
+scale = Vector2(0.5, 0.5)
+
+[node name="Intervalo para o spawn de inimigos" type="Timer" parent="Área dos personagens" index="7"]
+one_shot = true
+
+[node name="Rota de spawn dos inimigos" type="Path2D" parent="Área dos personagens" index="8"]
+curve = SubResource("Curve2D_kh3cg")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Área dos personagens/Rota de spawn dos inimigos" index="0"]
+position = Vector2(1136, 72)
+
+[connection signal="timeout" from="Área dos personagens/Intervalo para o spawn de inimigos" to="." method="_on_intervalo_para_o_spawn_de_inimigos_timeout"]

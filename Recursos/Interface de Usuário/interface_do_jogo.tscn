@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3 uid="uid://nd1sqkityfm6"]
+
+[ext_resource type="Script" path="res://Recursos/Interface de Usuário/Interface do jogo.gd" id="1_70mmy"]
+
+[node name="Interface do jogo" type="Control"]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_70mmy")
+
+[node name="Cor de fundo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 1.0
+offset_bottom = 88.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.8)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0616319
+anchor_top = 0.0246914
+anchor_right = 0.938368
+anchor_bottom = 0.975309
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Nomes" type="GridContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="Jogador" type="GridContainer" parent="GridContainer/Nomes"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 3
+
+[node name="Nome do Jogador" type="Label" parent="GridContainer/Nomes/Jogador"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label da Pontuação" type="Label" parent="GridContainer/Nomes/Jogador"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pontuação:"
+horizontal_alignment = 2
+
+[node name="Pontuação do Jogador" type="Label" parent="GridContainer/Nomes/Jogador"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Nome do Inimigo" type="Label" parent="GridContainer/Nomes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Barras de vida" type="GridContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="Vida do Jogador" type="ProgressBar" parent="GridContainer/Barras de vida"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Vida do Inimigo" type="ProgressBar" parent="GridContainer/Barras de vida"]
+layout_mode = 2
+size_flags_horizontal = 3

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvo6r78bdrdsh"
+path="res://.godot/imported/Fase com Chefe.mp3-a89136456bcc0440993c9eaad99b4848.mp3str"
+
+[deps]
+
+source_file="res://Recursos/Sons/Fase com Chefe.mp3"
+dest_files=["res://.godot/imported/Fase com Chefe.mp3-a89136456bcc0440993c9eaad99b4848.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

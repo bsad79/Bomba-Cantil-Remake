@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxasa7bhw8hcn"]
+
+[ext_resource type="Script" path="res://Recursos/Raiz.gd" id="1_rs72v"]
+[ext_resource type="AudioStream" uid="uid://can1k0q32uj0l" path="res://Recursos/Sons/Diálogo.mp3" id="2_ugvhh"]
+[ext_resource type="AudioStream" uid="uid://cvo6r78bdrdsh" path="res://Recursos/Sons/Fase com Chefe.mp3" id="3_okwl7"]
+[ext_resource type="AudioStream" uid="uid://dj4r85g6bmw75" path="res://Recursos/Sons/Fase Normal.mp3" id="4_1orso"]
+
+[node name="Raiz" type="Node"]
+script = ExtResource("1_rs72v")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -13.0
+offset_right = 20.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "etste"
+
+[node name="Som de botão pressionado" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ugvhh")
+volume_db = -21.673
+
+[node name="Música para Chefes" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_okwl7")
+
+[node name="Múscia padrão" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1orso")

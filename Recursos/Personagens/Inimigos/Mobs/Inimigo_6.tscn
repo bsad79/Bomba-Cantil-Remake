@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=3 uid="uid://dbgitcskjsykr"]
+
+[ext_resource type="PackedScene" uid="uid://sdwcfj0w0yf6" path="res://Recursos/Personagens/Inimigos/inimigo.tscn" id="1_bm1jw"]
+[ext_resource type="Texture2D" uid="uid://dq8nhtth4kblj" path="res://Recursos/Imagens/Sprites/Inimigo_6.png" id="2_y1pay"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isxr1"]
+atlas = ExtResource("2_y1pay")
+region = Rect2(0, 42, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl5ix"]
+atlas = ExtResource("2_y1pay")
+region = Rect2(41, 42, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmjrj"]
+atlas = ExtResource("2_y1pay")
+region = Rect2(82, 42, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arj6x"]
+atlas = ExtResource("2_y1pay")
+region = Rect2(0, 126, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0iyw"]
+atlas = ExtResource("2_y1pay")
+region = Rect2(0, 84, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5hxi"]
+atlas = ExtResource("2_y1pay")
+region = Rect2(0, 168, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv1p4"]
+atlas = ExtResource("2_y1pay")
+region = Rect2(0, 0, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpc5s"]
+atlas = ExtResource("2_y1pay")
+region = Rect2(0, 0, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpnxi"]
+atlas = ExtResource("2_y1pay")
+region = Rect2(41, 0, 41, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c0c40"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isxr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wl5ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmjrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wl5ix")
+}],
+"loop": true,
+"name": &"Andando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arj6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0iyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arj6x")
+}],
+"loop": false,
+"name": &"Apanhando",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5hxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tv1p4")
+}],
+"loop": false,
+"name": &"Batendo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpc5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpnxi")
+}],
+"loop": true,
+"name": &"Parado",
+"speed": 5.0
+}]
+
+[node name="Inimigo" instance=ExtResource("1_bm1jw")]
+nome = "Teste 6"
+
+[node name="Sprite Animado" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_c0c40")

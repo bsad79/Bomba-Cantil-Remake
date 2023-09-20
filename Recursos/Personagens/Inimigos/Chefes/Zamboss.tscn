@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cupoylrh4egt"]
+
+[ext_resource type="PackedScene" uid="uid://sdwcfj0w0yf6" path="res://Recursos/Personagens/Inimigos/inimigo.tscn" id="1_cft7i"]
+[ext_resource type="Script" path="res://Recursos/Personagens/Inimigos/Chefes/Zamboss.gd" id="2_3oup0"]
+[ext_resource type="SpriteFrames" uid="uid://b6wb21u7dehnj" path="res://Recursos/Animações/Zamboss.tres" id="2_u55d5"]
+
+[node name="Zamboss" instance=ExtResource("1_cft7i")]
+script = ExtResource("2_3oup0")
+velocidade = 0
+"pontuação" = 0
+
+[node name="Sprite Animado" parent="." index="3"]
+position = Vector2(0, -89)
+sprite_frames = ExtResource("2_u55d5")

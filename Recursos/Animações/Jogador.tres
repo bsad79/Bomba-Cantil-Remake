@@ -1,0 +1,95 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://b21ycpaiq4afy"]
+
+[ext_resource type="Texture2D" uid="uid://dor3ib0gjkegh" path="res://Recursos/Imagens/Sprites/Jogador.png" id="1_syxod"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdfrm"]
+atlas = ExtResource("1_syxod")
+region = Rect2(0, 42, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcpmw"]
+atlas = ExtResource("1_syxod")
+region = Rect2(41, 42, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4efv"]
+atlas = ExtResource("1_syxod")
+region = Rect2(82, 42, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn6fj"]
+atlas = ExtResource("1_syxod")
+region = Rect2(0, 126, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf4pq"]
+atlas = ExtResource("1_syxod")
+region = Rect2(0, 84, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aenbr"]
+atlas = ExtResource("1_syxod")
+region = Rect2(0, 210, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfmjt"]
+atlas = ExtResource("1_syxod")
+region = Rect2(0, 0, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdbk0"]
+atlas = ExtResource("1_syxod")
+region = Rect2(0, 0, 41, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ehj0"]
+atlas = ExtResource("1_syxod")
+region = Rect2(41, 0, 41, 42)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdfrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcpmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4efv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcpmw")
+}],
+"loop": true,
+"name": &"Andando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn6fj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf4pq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn6fj")
+}],
+"loop": false,
+"name": &"Apanhando",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_aenbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfmjt")
+}],
+"loop": false,
+"name": &"Batendo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdbk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ehj0")
+}],
+"loop": true,
+"name": &"Parado",
+"speed": 5.0
+}]

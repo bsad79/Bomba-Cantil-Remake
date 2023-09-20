@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv0c4bgdn0xtp"]
+
+[ext_resource type="Script" path="res://Recursos/Personagens/personagem.gd" id="1_3xksi"]
+[ext_resource type="SpriteFrames" uid="uid://b21ycpaiq4afy" path="res://Recursos/Animações/Jogador.tres" id="2_rl83o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rk84k"]
+size = Vector2(102, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_me1pi"]
+size = Vector2(44, 296)
+
+[node name="Personagem" type="CharacterBody2D"]
+script = ExtResource("1_3xksi")
+
+[node name="Colisão do Corpo" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rk84k")
+
+[node name="Área do Corpo" type="Area2D" parent="."]
+
+[node name="Colisão para dano" type="CollisionShape2D" parent="Área do Corpo"]
+shape = SubResource("RectangleShape2D_rk84k")
+
+[node name="Área do Golpe" type="Area2D" parent="."]
+
+[node name="Colisão do Golpe" type="CollisionShape2D" parent="Área do Golpe"]
+position = Vector2(76, -27)
+shape = SubResource("RectangleShape2D_me1pi")
+
+[node name="Sprite Animado" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -83)
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("2_rl83o")
+animation = &"Parado"
+autoplay = "Parado"
+metadata/_edit_lock_ = true
+
+[node name="Tempo entre ataques" type="Timer" parent="."]
+one_shot = true
+
+[node name="Tempo de invencibilidade após dano" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Área do Golpe" to="." method="_on_área_do_golpe_body_entered"]
+[connection signal="body_exited" from="Área do Golpe" to="." method="_on_área_do_golpe_body_exited"]
+[connection signal="timeout" from="Tempo de invencibilidade após dano" to="." method="_on_tempo_de_invencibilidade_após_dano_timeout"]

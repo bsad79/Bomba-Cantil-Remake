@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dj4r85g6bmw75"
+path="res://.godot/imported/Fase Normal.mp3-8bb174ac3bcd65bd193d167490e456bd.mp3str"
+
+[deps]
+
+source_file="res://Recursos/Sons/Fase Normal.mp3"
+dest_files=["res://.godot/imported/Fase Normal.mp3-8bb174ac3bcd65bd193d167490e456bd.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

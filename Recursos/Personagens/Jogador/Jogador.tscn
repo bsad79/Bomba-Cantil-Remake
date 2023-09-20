@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cruxngj61ctal"]
+
+[ext_resource type="PackedScene" uid="uid://dv0c4bgdn0xtp" path="res://Recursos/Personagens/personagem.tscn" id="1_6dqx6"]
+[ext_resource type="Script" path="res://Recursos/Personagens/Jogador/Jogador.gd" id="2_wuu4d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fpor"]
+size = Vector2(81.4685, 296)
+
+[node name="Jogador" instance=ExtResource("1_6dqx6")]
+script = ExtResource("2_wuu4d")
+nome = "Jogador"
+velocidade = 400
+ataque = 100
+
+[node name="Colisão do Golpe" parent="Área do Golpe" index="0"]
+position = Vector2(100, -27)
+shape = SubResource("RectangleShape2D_5fpor")
+disabled = true
+
+[node name="Tempo entre ataques" parent="." index="4"]
+wait_time = 0.2
+
+[connection signal="timeout" from="Tempo entre ataques" to="." method="_on_tempo_entre_ataques_timeout"]

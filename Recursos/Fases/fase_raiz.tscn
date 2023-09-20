@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://mv2a4da440ao"]
+
+[ext_resource type="Script" path="res://Recursos/Fases/Fase_Raiz.gd" id="1_rddou"]
+
+[sub_resource type="Animation" id="Animation_e5ql0"]
+resource_name = "Fim"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8wi2u"]
+resource_name = "Início"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_72pjg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v6nob"]
+_data = {
+"Fim": SubResource("Animation_e5ql0"),
+"Início": SubResource("Animation_8wi2u"),
+"RESET": SubResource("Animation_72pjg")
+}
+
+[node name="Fase Raiz" type="Node"]
+script = ExtResource("1_rddou")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Cronômetro de Transição" type="Timer" parent="."]
+
+[node name="Transição de Fase" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v6nob")
+}
+
+[node name="Elementos do cenário" type="Node" parent="."]
+
+[node name="Imagem de fundo" type="TextureRect" parent="Elementos do cenário"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Área dos personagens" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[connection signal="timeout" from="Cronômetro de Transição" to="." method="_on_cronômetro_de_transição_timeout"]
