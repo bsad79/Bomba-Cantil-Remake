@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://bp18dba27aex2"]
+
+[ext_resource type="Texture2D" uid="uid://bhw2wsimayd88" path="res://Recursos/Imagens/Desenvolvedores/Samuel.png" id="1_ugexy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwnwk"]
+atlas = ExtResource("1_ugexy")
+region = Rect2(0, 0, 47, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er7b2"]
+atlas = ExtResource("1_ugexy")
+region = Rect2(47, 0, 47, 50)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwnwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er7b2")
+}],
+"loop": true,
+"name": &"Parado",
+"speed": 2.0
+}]

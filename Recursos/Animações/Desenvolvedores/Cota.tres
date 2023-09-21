@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://rj5cr0c7ac8g"]
+
+[ext_resource type="Texture2D" uid="uid://c1xermc3chxrl" path="res://Recursos/Imagens/Desenvolvedores/Cota.png" id="1_sppg6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjka0"]
+atlas = ExtResource("1_sppg6")
+region = Rect2(0, 0, 45, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl2mf"]
+atlas = ExtResource("1_sppg6")
+region = Rect2(45, 0, 45, 50)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjka0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gl2mf")
+}],
+"loop": true,
+"name": &"Parado",
+"speed": 2.0
+}]

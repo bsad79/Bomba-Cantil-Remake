@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Recursos/Fases/fase_2.gd" id="2_do3gt"]
 [ext_resource type="Texture2D" uid="uid://bmhr8xfgj0c7k" path="res://Recursos/Imagens/Cenários/PA's (com barquinho) Parte 1.png" id="3_u70dl"]
 [ext_resource type="PackedScene" uid="uid://cruxngj61ctal" path="res://Recursos/Personagens/Jogador/Jogador.tscn" id="4_jkgut"]
-[ext_resource type="PackedScene" uid="uid://cupoylrh4egt" path="res://Recursos/Personagens/Inimigos/Chefes/Zamboss.tscn" id="5_e11s8"]
+[ext_resource type="PackedScene" uid="uid://cq1ejukin1vtr" path="res://Recursos/Personagens/Inimigos/Chefes/Zamboss.tscn" id="5_e11s8"]
 [ext_resource type="Texture2D" uid="uid://c7irht1r2cn5q" path="res://Recursos/Imagens/Introução do chefe/Zamboss.png" id="7_ehajm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umawp"]
@@ -111,7 +111,7 @@ position = Vector2(40, 436)
 scale = Vector2(0.5, 0.5)
 
 [node name="Zamboss" parent="Área dos personagens" index="1" instance=ExtResource("5_e11s8")]
-position = Vector2(1036, 445)
+position = Vector2(1074, 448)
 scale = Vector2(0.5, 0.5)
 
 [node name="Control" type="Control" parent="." index="5"]
