@@ -9,8 +9,8 @@ size = Vector2(81.4685, 296)
 [node name="Jogador" instance=ExtResource("1_6dqx6")]
 script = ExtResource("2_wuu4d")
 nome = "Jogador"
-velocidade = 400
-ataque = 100
+velocidade = 300
+ataque = 34
 
 [node name="Colisão do Golpe" parent="Área do Golpe" index="0"]
 position = Vector2(100, -27)

@@ -1,8 +1,60 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7vcm43htsn70"]
+[gd_scene load_steps=6 format=3 uid="uid://c7vcm43htsn70"]
 
 [ext_resource type="Script" path="res://Recursos/Interface de Usuário/Menu_Inicial.gd" id="1_ufk8e"]
 
-[node name="Control" type="Control"]
+[sub_resource type="Animation" id="Animation_7plru"]
+resource_name = "Entrar"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elementos da tela:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6ruj8"]
+resource_name = "Sair"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elementos da tela:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q6o67"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elementos da tela:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w3vgj"]
+_data = {
+"Entrar": SubResource("Animation_7plru"),
+"RESET": SubResource("Animation_q6o67"),
+"Sair": SubResource("Animation_6ruj8")
+}
+
+[node name="Menu Inicial" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +63,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ufk8e")
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="Fundo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Elementos da tela" type="GridContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.482639
@@ -22,22 +83,34 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Título" type="Label" parent="GridContainer"]
+[node name="Título" type="Label" parent="Elementos da tela"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 52
 text = "Bomba Cantil
 Remake"
 horizontal_alignment = 1
 
-[node name="Jogar" type="Button" parent="GridContainer"]
+[node name="Jogar" type="Button" parent="Elementos da tela"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Jogar"
 
-[node name="Sair" type="Button" parent="GridContainer"]
+[node name="Créditos" type="Button" parent="Elementos da tela"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Créditos"
+
+[node name="Sair" type="Button" parent="Elementos da tela"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Sair"
 
-[connection signal="pressed" from="GridContainer/Jogar" to="." method="_on_jogar_pressed"]
-[connection signal="pressed" from="GridContainer/Sair" to="." method="_on_sair_pressed"]
+[node name="Transição" type="AnimationPlayer" parent="."]
+autoplay = "Entrar"
+libraries = {
+"": SubResource("AnimationLibrary_w3vgj")
+}
+
+[connection signal="pressed" from="Elementos da tela/Jogar" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="Elementos da tela/Créditos" to="." method="_on_créditos_pressed"]
+[connection signal="pressed" from="Elementos da tela/Sair" to="." method="_on_sair_pressed"]

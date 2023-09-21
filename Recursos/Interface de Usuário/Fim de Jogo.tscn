@@ -1,6 +1,58 @@
-[gd_scene load_steps=2 format=3 uid="uid://id475m0rtse0"]
+[gd_scene load_steps=6 format=3 uid="uid://id475m0rtse0"]
 
 [ext_resource type="Script" path="res://Recursos/Interface de Usuário/Fim de jogo.gd" id="1_y550e"]
+
+[sub_resource type="Animation" id="Animation_kiec5"]
+resource_name = "Entrar"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qu5ku"]
+resource_name = "Sair"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_82aft"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x0wbh"]
+_data = {
+"Entrar": SubResource("Animation_kiec5"),
+"RESET": SubResource("Animation_82aft"),
+"Sair": SubResource("Animation_qu5ku")
+}
 
 [node name="Fim de jogo" type="Control"]
 layout_mode = 3
@@ -19,6 +71,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Transição" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Elementos da tela")
+autoplay = "Entrar"
+libraries = {
+"": SubResource("AnimationLibrary_x0wbh")
+}
 
 [node name="Elementos da tela" type="GridContainer" parent="."]
 layout_mode = 1

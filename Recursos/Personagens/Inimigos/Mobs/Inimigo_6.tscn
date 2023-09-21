@@ -96,7 +96,7 @@ animations = [{
 }]
 
 [node name="Inimigo" instance=ExtResource("1_bm1jw")]
-nome = "Teste 6"
+nome = "Julia"
 
 [node name="Sprite Animado" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_c0c40")

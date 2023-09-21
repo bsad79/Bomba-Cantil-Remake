@@ -8,6 +8,8 @@
 script = ExtResource("2_olo3a")
 nome = "Angel is"
 velocidade = 100
+defesa = 24
+ataque = 5
 "pontuação" = 1000
 
 [node name="Colisão do Golpe" parent="Área do Golpe" index="0"]
@@ -16,5 +18,3 @@ position = Vector2(80, -27)
 [node name="Sprite Animado" parent="." index="3"]
 position = Vector2(-3.55271e-15, -115)
 sprite_frames = ExtResource("3_gneet")
-animation = &"Parado"
-autoplay = "Parado"

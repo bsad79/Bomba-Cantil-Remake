@@ -38,7 +38,7 @@ func _process(delta):
 			valor_em_y *= -1
 		
 		#Movimenta ele caso ele não esteja muito próximo do personagem em X
-		if (valor_em_x > 110):
+		if (valor_em_x > 70):
 			if (jogadorAux[0] > positionAux[0]):
 				vetor_de_movimento.x += 1
 			elif (jogadorAux[0] < positionAux[0]):
@@ -47,7 +47,7 @@ func _process(delta):
 				vetor_de_movimento.x = 0
 			
 		#Afasta ele do personagem se estiverem muito próximos
-		elif (valor_em_x <= 80):
+		elif (valor_em_x <= 60):
 			if (jogadorAux[0] > positionAux[0]):
 				vetor_de_movimento.x -= 1
 			if (jogadorAux[0] < positionAux[0]):
@@ -56,14 +56,14 @@ func _process(delta):
 			vetor_de_movimento.x = 0
 		
 		#Movimenta ele caso ele não esteja muito próximo do personagem em Y
-		if (valor_em_y > 70):
+		if (valor_em_y > 60):
 			if (jogadorAux[1] > positionAux[1]):
 				vetor_de_movimento.y += 1
 			if (jogadorAux[1] < positionAux[1]):
 				vetor_de_movimento.y -= 1
 
 		#Afasta ele do personagem se estiverem muito próximos
-		elif (valor_em_y <= 50):
+		elif (valor_em_y <= 30):
 			vetor_de_movimento.y -= 1
 		else:
 			vetor_de_movimento.y = 0

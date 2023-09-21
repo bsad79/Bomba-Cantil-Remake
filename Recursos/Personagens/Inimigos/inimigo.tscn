@@ -7,6 +7,3 @@
 script = ExtResource("2_j7dsj")
 velocidade = 100
 "pontuação" = 100
-
-[node name="Sprite Animado" parent="." index="3"]
-animation = &"Parado"

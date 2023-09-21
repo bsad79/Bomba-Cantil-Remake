@@ -1,6 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo3ol0gc5jqgw"]
+[gd_scene load_steps=4 format=3 uid="uid://bo3ol0gc5jqgw"]
 
 [ext_resource type="Script" path="res://Recursos/Interface de Usuário/Caixa de diálogo.gd" id="1_grxpt"]
+
+[sub_resource type="Animation" id="Animation_411w7"]
+resource_name = "Aparecer"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Borda:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(160, 32), Vector2(1040, 256)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Borda:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(496, 144), Vector2(56, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bqo2q"]
+_data = {
+"Aparecer": SubResource("Animation_411w7")
+}
 
 [node name="Caixa de diálogo" type="Node"]
 script = ExtResource("1_grxpt")
@@ -8,10 +41,10 @@ script = ExtResource("1_grxpt")
 [node name="Borda" type="ColorRect" parent="."]
 z_index = 4
 anchors_preset = -1
-anchor_left = 0.0486111
-anchor_top = 0.0493827
-anchor_right = 0.951389
-anchor_bottom = 0.444444
+anchor_left = 0.430556
+anchor_top = 0.222222
+anchor_right = 0.569444
+anchor_bottom = 0.271605
 grow_horizontal = 2
 metadata/_edit_use_anchors_ = true
 
@@ -68,6 +101,12 @@ text = "Não"
 
 [node name="Tempo de transição" type="Timer" parent="."]
 one_shot = true
+
+[node name="Transição" type="AnimationPlayer" parent="."]
+autoplay = "Aparecer"
+libraries = {
+"": SubResource("AnimationLibrary_bqo2q")
+}
 
 [connection signal="pressed" from="Borda/Caixa de texto/Botões/Aceita" to="." method="_on_aceita_pressed"]
 [connection signal="pressed" from="Borda/Caixa de texto/Botões/Recusa" to="." method="_on_recusa_pressed"]

@@ -8,6 +8,8 @@ var última_fala
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	última_fala = false
+	$"Borda/Caixa de texto/Texto".visible = false
+	exibir_caixa_de_diálogo()
 	$"Tempo de transição".start()
 	$"Borda/Caixa de texto/Botões".visible = false
 	$"Borda/Caixa de texto/Botões/Aceita".disabled = true
@@ -17,6 +19,22 @@ func _ready():
 	etapa_do_dialogo = 0
 	pass # Replace with function body.
 
+func exibir_caixa_de_diálogo():
+	$"Transição".play("Aparecer")
+	await $"Transição".animation_finished
+	$"Borda/Caixa de texto/Texto".visible = true
+	pass
+
+func remover_caixa_de_diálogo():
+	$"Borda/Caixa de texto/Texto".visible = false
+	$"Transição".play_backwards("Aparecer")
+	await $"Transição".animation_finished
+	queue_free()
+	if (get_parent().name == "Fase 1" or get_parent().name == "Fase 2") and etapa_do_dialogo == 0:
+		get_parent().roda_a_vinheta()
+	else:
+		Raiz.dialogo_está_apresentando = false
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -44,11 +62,7 @@ func atualiza_texto():
 		4:
 			dialogo_final_bom()
 		5:
-			queue_free()
-			if (get_parent().name == "Fase 1" or get_parent().name == "Fase 2") and etapa_do_dialogo == 0:
-				get_parent().roda_a_vinheta()
-			else:
-				Raiz.dialogo_está_apresentando = false
+			remover_caixa_de_diálogo()
 	pass
 
 func dialogo_portaria(etapa):
@@ -58,7 +72,7 @@ func dialogo_portaria(etapa):
 				0:
 					$"Borda/Caixa de texto/Texto".text = "Nossa, a ft parece meio estranha hoje... O que será que está acontecendo?"
 				1:
-					$"Borda/Caixa de texto/Texto".text = "Oh meu Deus! O Angeli está sendo levado pelo Kotil!"
+					$"Borda/Caixa de texto/Texto".text = "Oh meu Deus! O Angelis está sendo levado pelo Kotil!"
 				2:
 					$"Borda/Caixa de texto/Texto".text = "O que eles pensam que estão fazendo?"
 					dialogo_selecionado = 5
@@ -68,7 +82,7 @@ func dialogo_portaria(etapa):
 				0:
 					$"Borda/Caixa de texto/Texto".text = "O que foi isso? O que será que o Kotil fez com ele?"
 				1:
-					$"Borda/Caixa de texto/Texto".text = "Perai, aquele é o Zambo? O que o Kotil está fazendo? Preciso impedi-los!"
+					$"Borda/Caixa de texto/Texto".text = "Perai, aquele é o Zambom? O que o Kotil está fazendo? Preciso impedi-los!"
 					dialogo_selecionado = 5
 					$"Tempo de transição".start()
 					última_fala = true
@@ -79,9 +93,9 @@ func dialogo_pa(etapa):
 		0:
 			match (fala):
 				0:
-					$"Borda/Caixa de texto/Texto".text = "o que é isso?"
+					$"Borda/Caixa de texto/Texto".text = "O que é isso?"
 				1:
-					$"Borda/Caixa de texto/Texto".text = "OH NÃO, ZAMBÕES!!!!"
+					$"Borda/Caixa de texto/Texto".text = "OH NÃO, ZAMBOM!!!!"
 					dialogo_selecionado = 5
 					$"Tempo de transição".start()
 		1:

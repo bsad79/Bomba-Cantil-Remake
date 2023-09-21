@@ -96,7 +96,9 @@ animations = [{
 }]
 
 [node name="Inimigo" instance=ExtResource("1_sg5mp")]
-nome = "Teste 3"
+nome = "João"
+defesa = 3
+ataque = 7
 
 [node name="Sprite Animado" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_28j0b")
