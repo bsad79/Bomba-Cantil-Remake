@@ -39,10 +39,17 @@ func remover_caixa_de_diálogo():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if  $"Tempo de transição".is_stopped():
-		if Input.is_action_just_released("Bater"):
-			Raiz.som_de_botão.play()
-			fala += 1
-			atualiza_texto()
+		if get_parent().name == "Fase 3" and dialogo_selecionado == 2 and etapa_do_dialogo == 1 and fala == 1:
+			#
+			pass
+		else:
+			if Input.is_action_just_released("Bater"):
+				#print(fala)
+				Raiz.som_de_botão.play()
+				fala += 1
+				if fala >= 5:
+					fala = 0
+				atualiza_texto()
 	pass
 
 func atualiza_texto():
@@ -161,6 +168,7 @@ func dialogo_final_bom():
 			$"Borda/Caixa de texto/Texto".text = "Eles ganharam. Vocês perderam"
 			dialogo_selecionado = 5
 			$"Tempo de transição".start()
+			última_fala = true
 			get_parent().final_bom = true
 			get_parent().get_node("Animação de fogo").play("FT em chamas")
 			get_parent().iniciar_crônometro_de_spawn()
@@ -198,6 +206,7 @@ func _on_recusa_pressed():
 
 func _on_tempo_de_transição_timeout():
 	if (get_parent().name == "Fase 3" and última_fala):
+		Raiz.número_de_conclusões += 1
 		if (get_parent().final_bom == false):
 			get_parent().get_node("Área dos personagens/Jogador").morte()
 	elif (última_fala):

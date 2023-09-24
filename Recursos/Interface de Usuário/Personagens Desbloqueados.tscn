@@ -1,11 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://da7pu37c3lvbk"]
+[gd_scene load_steps=13 format=3 uid="uid://b6ca8gfx6s023"]
 
-[ext_resource type="Script" path="res://Recursos/Interface de Usuário/Créditos.gd" id="1_5phga"]
-[ext_resource type="SpriteFrames" uid="uid://rj5cr0c7ac8g" path="res://Recursos/Animações/Desenvolvedores/Cota.tres" id="1_jheaf"]
-[ext_resource type="SpriteFrames" uid="uid://m2fqgjuxdffj" path="res://Recursos/Animações/Desenvolvedores/Marcos.tres" id="2_u7wfl"]
-[ext_resource type="SpriteFrames" uid="uid://buvcvemhqpb8c" path="res://Recursos/Animações/Desenvolvedores/Matheus.tres" id="3_wk1o7"]
-[ext_resource type="SpriteFrames" uid="uid://bci6q2skibm43" path="res://Recursos/Animações/Desenvolvedores/Ori.tres" id="4_6s36l"]
-[ext_resource type="SpriteFrames" uid="uid://bp18dba27aex2" path="res://Recursos/Animações/Desenvolvedores/Samuel.tres" id="5_16s2s"]
+[ext_resource type="Script" path="res://Recursos/Interface de Usuário/Personagens Desbloqueados.gd" id="1_a6qqh"]
+[ext_resource type="SpriteFrames" uid="uid://b4ca2bogn14ah" path="res://Recursos/Animações/Angel is.tres" id="2_q0lpr"]
+[ext_resource type="SpriteFrames" uid="uid://b6wb21u7dehnj" path="res://Recursos/Animações/Zamboss.tres" id="3_oee7q"]
+[ext_resource type="SpriteFrames" uid="uid://ch3p1cu4bav13" path="res://Recursos/Animações/Inimigo_1.tres" id="4_nxgyc"]
+[ext_resource type="SpriteFrames" uid="uid://kw8tprn1e4gh" path="res://Recursos/Animações/Inimigo_2.tres" id="5_bwt8o"]
+[ext_resource type="SpriteFrames" uid="uid://diuqqtle68er8" path="res://Recursos/Animações/Inimigo_3.tres" id="6_mwjfs"]
+[ext_resource type="SpriteFrames" uid="uid://bdy3e8fgbk47a" path="res://Recursos/Animações/Inimigo_4.tres" id="7_js6um"]
+[ext_resource type="SpriteFrames" uid="uid://b4pk33163kpbs" path="res://Recursos/Animações/Inimigo_5.tres" id="8_ca1ll"]
+[ext_resource type="SpriteFrames" uid="uid://bo1semym61omb" path="res://Recursos/Animações/Inimigo_6.tres" id="9_8qcva"]
 
 [sub_resource type="Animation" id="Animation_sp2qo"]
 resource_name = "Entrar"
@@ -91,15 +94,14 @@ _data = {
 "RESET": SubResource("Animation_hnx1f")
 }
 
-[node name="Créditos" type="Control"]
+[node name="Personagens Desbloqueados" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-script = ExtResource("1_5phga")
+script = ExtResource("1_a6qqh")
 
 [node name="Fundo" type="ColorRect" parent="."]
 layout_mode = 1
@@ -120,7 +122,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 text = "
-Desenvolvido por:"
+Personagens desbloqueados"
 horizontal_alignment = 1
 
 [node name="Fila dos Desenvolvedores" type="HBoxContainer" parent="."]
@@ -129,73 +131,102 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 135.0
-offset_right = -135.0
+offset_left = 49.0
+offset_top = -1.0
+offset_right = -49.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
 
 [node name="Posição 1" type="Control" parent="Fila dos Desenvolvedores"]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="Cota" type="AnimatedSprite2D" parent="Fila dos Desenvolvedores/Posição 1"]
+[node name="Sprite" type="AnimatedSprite2D" parent="Fila dos Desenvolvedores/Posição 1"]
 texture_filter = 1
 scale = Vector2(3, 3)
-sprite_frames = ExtResource("1_jheaf")
+sprite_frames = ExtResource("2_q0lpr")
 animation = &"Parado"
 autoplay = "Parado"
-frame_progress = 0.266238
 
 [node name="Posição 2" type="Control" parent="Fila dos Desenvolvedores"]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="Marcos" type="AnimatedSprite2D" parent="Fila dos Desenvolvedores/Posição 2"]
+[node name="Sprite" type="AnimatedSprite2D" parent="Fila dos Desenvolvedores/Posição 2"]
 texture_filter = 1
 scale = Vector2(3, 3)
-sprite_frames = ExtResource("2_u7wfl")
+sprite_frames = ExtResource("3_oee7q")
 animation = &"Parado"
 autoplay = "Parado"
-frame_progress = 0.558046
 
 [node name="Posição 3" type="Control" parent="Fila dos Desenvolvedores"]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="Matheus" type="AnimatedSprite2D" parent="Fila dos Desenvolvedores/Posição 3"]
+[node name="Sprite" type="AnimatedSprite2D" parent="Fila dos Desenvolvedores/Posição 3"]
 texture_filter = 1
 scale = Vector2(3, 3)
-sprite_frames = ExtResource("3_wk1o7")
+sprite_frames = ExtResource("4_nxgyc")
 animation = &"Parado"
 autoplay = "Parado"
-frame_progress = 0.536965
 
 [node name="Posição 4" type="Control" parent="Fila dos Desenvolvedores"]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="Ori" type="AnimatedSprite2D" parent="Fila dos Desenvolvedores/Posição 4"]
+[node name="Sprite" type="AnimatedSprite2D" parent="Fila dos Desenvolvedores/Posição 4"]
 texture_filter = 1
 scale = Vector2(3, 3)
-sprite_frames = ExtResource("4_6s36l")
+sprite_frames = ExtResource("5_bwt8o")
 animation = &"Parado"
 autoplay = "Parado"
-frame_progress = 0.522871
 
 [node name="Posição 5" type="Control" parent="Fila dos Desenvolvedores"]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="Samuel" type="AnimatedSprite2D" parent="Fila dos Desenvolvedores/Posição 5"]
+[node name="Sprite" type="AnimatedSprite2D" parent="Fila dos Desenvolvedores/Posição 5"]
 texture_filter = 1
 scale = Vector2(3, 3)
-sprite_frames = ExtResource("5_16s2s")
+sprite_frames = ExtResource("6_mwjfs")
 animation = &"Parado"
 autoplay = "Parado"
-frame_progress = 0.397451
+
+[node name="Posição 6" type="Control" parent="Fila dos Desenvolvedores"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Fila dos Desenvolvedores/Posição 6"]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("7_js6um")
+animation = &"Parado"
+autoplay = "Parado"
+
+[node name="Posição 7" type="Control" parent="Fila dos Desenvolvedores"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Fila dos Desenvolvedores/Posição 7"]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("8_ca1ll")
+animation = &"Parado"
+autoplay = "Parado"
+
+[node name="Posição 8" type="Control" parent="Fila dos Desenvolvedores"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Fila dos Desenvolvedores/Posição 8"]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("9_8qcva")
+animation = &"Parado"
+autoplay = "Parado"
 
 [node name="Transição" type="AnimationPlayer" parent="."]
 autoplay = "Aparecer"
@@ -213,3 +244,10 @@ offset_top = -57.0
 grow_horizontal = 2
 grow_vertical = 0
 horizontal_alignment = 1
+
+[node name="Tempo de visualização" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Tempo de visualização" to="." method="_on_tempo_de_visualização_timeout"]

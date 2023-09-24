@@ -17,21 +17,6 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_6ruj8"]
-resource_name = "Sair"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Elementos da tela:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_q6o67"]
 length = 0.001
 tracks/0/type = "value"
@@ -45,6 +30,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6ruj8"]
+resource_name = "Sair"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elementos da tela:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w3vgj"]
@@ -95,6 +95,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Jogar"
 
+[node name="Controles" type="Button" parent="Elementos da tela"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Controles"
+
 [node name="Créditos" type="Button" parent="Elementos da tela"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
@@ -112,5 +117,6 @@ libraries = {
 }
 
 [connection signal="pressed" from="Elementos da tela/Jogar" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="Elementos da tela/Controles" to="." method="_on_controles_pressed"]
 [connection signal="pressed" from="Elementos da tela/Créditos" to="." method="_on_créditos_pressed"]
 [connection signal="pressed" from="Elementos da tela/Sair" to="." method="_on_sair_pressed"]

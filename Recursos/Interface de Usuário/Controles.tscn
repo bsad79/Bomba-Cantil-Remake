@@ -1,0 +1,208 @@
+[gd_scene load_steps=5 format=3 uid="uid://h3iwa6f83p63"]
+
+[ext_resource type="Script" path="res://Recursos/Interface de Usuário/Controles.gd" id="1_8e2uf"]
+
+[sub_resource type="Animation" id="Animation_d82d4"]
+resource_name = "Aparecer"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elementos de Tela:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ch2d2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elementos de Tela:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hn206"]
+_data = {
+"Aparecer": SubResource("Animation_d82d4"),
+"RESET": SubResource("Animation_ch2d2")
+}
+
+[node name="Controles" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8e2uf")
+
+[node name="Fundo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Transição" type="AnimationPlayer" parent="."]
+autoplay = "Aparecer"
+libraries = {
+"": SubResource("AnimationLibrary_hn206")
+}
+
+[node name="Mensagem" type="ColorRect" parent="."]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.253038
+anchor_top = 0.231481
+anchor_right = 0.746962
+anchor_bottom = 0.768519
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.270588, 0.270588, 0.270588, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Instrução" type="Label" parent="Mensagem"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Pressione uma tecla..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Elementos de Tela" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -30.5
+offset_right = 33.5
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Título" type="Label" parent="Elementos de Tela"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Controle
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tabela de Controles" type="GridContainer" parent="Elementos de Tela"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="Ações" type="GridContainer" parent="Elementos de Tela/Tabela de Controles"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cabeçalho Ações" type="Label" parent="Elementos de Tela/Tabela de Controles/Ações"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Ação"
+
+[node name="Ação 1" type="Label" parent="Elementos de Tela/Tabela de Controles/Ações"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Mover para cima"
+
+[node name="Ação 2" type="Label" parent="Elementos de Tela/Tabela de Controles/Ações"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Mover para baixo"
+
+[node name="Ação 3" type="Label" parent="Elementos de Tela/Tabela de Controles/Ações"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Mover para esquerda"
+
+[node name="Ação 4" type="Label" parent="Elementos de Tela/Tabela de Controles/Ações"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Mover para direita"
+
+[node name="Ação 5" type="Label" parent="Elementos de Tela/Tabela de Controles/Ações"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Bater"
+
+[node name="Botões" type="GridContainer" parent="Elementos de Tela/Tabela de Controles"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Cabeçalho Botões" type="Label" parent="Elementos de Tela/Tabela de Controles/Botões"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Botão / Tecla"
+
+[node name="Botão 1" type="Button" parent="Elementos de Tela/Tabela de Controles/Botões"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Botão 2" type="Button" parent="Elementos de Tela/Tabela de Controles/Botões"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Botão 3" type="Button" parent="Elementos de Tela/Tabela de Controles/Botões"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Botão 4" type="Button" parent="Elementos de Tela/Tabela de Controles/Botões"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Botão 5" type="Button" parent="Elementos de Tela/Tabela de Controles/Botões"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Voltar" type="Button" parent="Elementos de Tela"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Voltar"
+
+[connection signal="pressed" from="Elementos de Tela/Tabela de Controles/Botões/Botão 1" to="." method="_on_botão_1_pressed"]
+[connection signal="pressed" from="Elementos de Tela/Tabela de Controles/Botões/Botão 2" to="." method="_on_botão_2_pressed"]
+[connection signal="pressed" from="Elementos de Tela/Tabela de Controles/Botões/Botão 3" to="." method="_on_botão_3_pressed"]
+[connection signal="pressed" from="Elementos de Tela/Tabela de Controles/Botões/Botão 4" to="." method="_on_botão_4_pressed"]
+[connection signal="pressed" from="Elementos de Tela/Tabela de Controles/Botões/Botão 5" to="." method="_on_botão_5_pressed"]
+[connection signal="pressed" from="Elementos de Tela/Voltar" to="." method="_on_voltar_pressed"]

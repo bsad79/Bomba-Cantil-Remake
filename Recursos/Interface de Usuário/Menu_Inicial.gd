@@ -17,7 +17,10 @@ func _on_jogar_pressed():
 	Raiz.som_de_botão.play()
 	$"Transição".play("Sair")
 	await $"Transição".animation_finished
-	get_tree().change_scene_to_file("res://Recursos/Fases/fase_1.tscn")
+	if Raiz.número_de_conclusões > 0:
+		get_tree().change_scene_to_file("res://Recursos/Interface de Usuário/Escolha de personagem.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Recursos/Fases/fase_1.tscn")
 	pass # Replace with function body.
 
 
@@ -32,4 +35,12 @@ func _on_créditos_pressed():
 	$"Transição".play("Sair")
 	await $"Transição".animation_finished
 	get_tree().change_scene_to_file("res://Recursos/Interface de Usuário/Créditos.tscn")
+	pass # Replace with function body.
+
+
+func _on_controles_pressed():
+	Raiz.som_de_botão.play()
+	$"Transição".play("Sair")
+	await $"Transição".animation_finished
+	get_tree().change_scene_to_file("res://Recursos/Interface de Usuário/Controles.tscn")
 	pass # Replace with function body.

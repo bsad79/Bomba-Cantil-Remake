@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c23q1k04av5kj"]
+
+[ext_resource type="PackedScene" uid="uid://l30hhatd08nv" path="res://Recursos/Items/item.tscn" id="1_kgj0k"]
+[ext_resource type="Script" path="res://Recursos/Items/Buffs/Vida.gd" id="2_0wh2d"]
+
+[node name="Vida" instance=ExtResource("1_kgj0k")]
+script = ExtResource("2_0wh2d")
+
+[connection signal="body_entered" from="Área de colsão" to="." method="_on_área_de_colsão_body_entered"]

@@ -1,10 +1,21 @@
 extends Personagem
 
 var está_andando = false
+var status = {
+	ataque = ataque,
+	defesa = defesa,
+	velocidade = velocidade
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super._ready()
+	status = {ataque = ataque, defesa = defesa, velocidade = velocidade}
+	$"Sprite Animado".sprite_frames = load(Raiz.personagem_selecionado)
+	if Raiz.personagem_selecionado.ends_with("Angel is.tres"):
+		$"Sprite Animado".position[1] = -115
+	else:
+		$"Sprite Animado".position[1] = -83
 	if Raiz.fase_atual != 0:
 		vida = Raiz.vida_do_jogador
 		pontuação = Raiz.pontuação_do_jogador
@@ -13,6 +24,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#print("ataque: ", ataque, " defesa: ", defesa, " velocidade: ", velocidade)
 	if !Raiz.dialogo_está_apresentando:
 		super._process(delta)
 		
@@ -60,7 +72,7 @@ func _process(delta):
 	pass
 
 func _on_área_do_golpe_body_entered(body):
-	if (body.name != "Jogador" and body.get_parent().name == "Área dos personagens"):
+	if (!body.name.begins_with("Jogador") and body.get_parent().name == "Área dos personagens"):
 		alvo = body
 		body.definir_vida(ataque)
 		pass
@@ -68,10 +80,30 @@ func _on_área_do_golpe_body_entered(body):
 
 func morte():
 	Raiz.dialogo_está_apresentando = true
-	get_parent().get_parent().próxima_fase = "res://Recursos/Interface de Usuário/Fim de Jogo.tscn"
+	if Raiz.número_de_conclusões == 1 or Raiz.número_de_conclusões == 2:
+		get_parent().get_parent().próxima_fase = "res://Recursos/Interface de Usuário/Personagens Desbloqueados.tscn"
+	else:
+		get_parent().get_parent().próxima_fase = "res://Recursos/Interface de Usuário/Fim de Jogo.tscn"
 	get_parent().get_parent().carregar_próxima_fase()
+	pass
+
+func obtém_tempo_de_buff():
+	return $"Tempo de buff".is_stopped()
 	pass
 
 func _on_tempo_entre_ataques_timeout():
 	get_node("Área do Golpe/Colisão do Golpe").disabled = true
 	pass # Replace with function body.
+
+
+func _on_tempo_de_buff_timeout():
+	$"Estado buffado".stop()
+	ataque = status.ataque
+	defesa = status.defesa
+	velocidade = status.velocidade
+	pass # Replace with function body.
+
+func aplica_buff():
+	$"Tempo de buff".start()
+	$"Estado buffado".play("Buff ativo")
+	pass

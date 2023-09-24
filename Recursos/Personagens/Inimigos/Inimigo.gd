@@ -5,6 +5,11 @@ class_name Inimigo
 var jogador
 
 var esta_em_combate
+var item_vida = preload("res://Recursos/Items/Buffs/Vida.tscn")
+var item_ataque = preload("res://Recursos/Items/Buffs/Ataque.tscn")
+var item_velocidade = preload("res://Recursos/Items/Buffs/Velocidade.tscn")
+var item_defesa = preload("res://Recursos/Items/Buffs/Defesa.tscn")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -86,7 +91,7 @@ func _process(delta):
 			get_node("Área do Golpe/Colisão do Golpe").position[0] = 76
 		
 		if (alvo != null and esta_em_combate and get_node("Tempo entre ataques").is_stopped() and !está_sofrendo_dano):
-			if (alvo.name == "Jogador"):
+			if (alvo.name.begins_with("Jogador")):
 				if (!alvo.está_sofrendo_dano):
 					get_node("Tempo entre ataques").start()
 					executar_animação_de_ataque()
@@ -103,6 +108,20 @@ func _process(delta):
 	pass
 
 func morte():
+	match (randi_range(0, 10)):
+		0:
+			var item_escolhido
+			match (randi_range(0, 3)):
+				0:
+					item_escolhido = item_vida.instantiate()
+				1:
+					item_escolhido = item_ataque.instantiate()
+				2:
+					item_escolhido = item_defesa.instantiate()
+				3:
+					item_escolhido = item_velocidade.instantiate()
+			item_escolhido.position = position
+			get_parent().call_deferred("add_child", item_escolhido)
 	super.morte()
 	jogador.pontuação += pontuação
 	Raiz.pontuação_do_jogador = jogador.pontuação
@@ -110,7 +129,7 @@ func morte():
 
 func _on_área_do_golpe_body_entered(body):
 	alvo = body
-	if (alvo.name == "Jogador"):
+	if (alvo.name.begins_with("Jogador")):
 		esta_em_combate = true
 	pass # Replace with function body.
 
