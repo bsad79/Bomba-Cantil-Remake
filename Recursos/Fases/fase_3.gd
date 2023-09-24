@@ -9,6 +9,7 @@ extends Fase
 
 var final_bom
 var fase_encerrada = false
+var tem_inimigos = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,7 +25,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	super._process(delta)
-	if get_node("Área dos personagens").get_child_count() <= 3 and !fase_encerrada:
+	tem_inimigos = false
+	for i in get_node("Área dos personagens").get_child_count() - 1:
+		if get_node("Área dos personagens").get_child(i).name.begins_with("Inimigo"):
+			tem_inimigos = true
+		pass
+	if !tem_inimigos and !fase_encerrada:
 		fase_encerrada = true
 		termina_fase()
 	pass
@@ -35,7 +41,7 @@ func _on_intervalo_para_o_spawn_de_inimigos_timeout():
 		local_de_spawn.progress_ratio = randf()
 		
 		var inimigo
-		match (randi() % 7 + 1):
+		match (randi_range(1, 7)):
 			0:
 				inimigo = cena_do_inimigo1.instantiate()
 			1:
@@ -57,7 +63,8 @@ func _on_intervalo_para_o_spawn_de_inimigos_timeout():
 		inimigo.position[1] = local_de_spawn.position[1]
 		inimigo.scale = Vector2(0.5, 0.5)
 		
-		get_node("Área dos personagens").add_child(inimigo)
+		if get_node("Área dos personagens").get_child_count() <= 50:
+			get_node("Área dos personagens").add_child(inimigo)
 		iniciar_crônometro_de_spawn()
 	pass # Replace with function body.
 

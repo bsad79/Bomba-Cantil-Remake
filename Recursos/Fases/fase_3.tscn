@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://snl8fuybpyjs"]
+[gd_scene load_steps=19 format=3 uid="uid://snl8fuybpyjs"]
 
 [ext_resource type="PackedScene" uid="uid://mv2a4da440ao" path="res://Recursos/Fases/fase_raiz.tscn" id="1_dnjrb"]
 [ext_resource type="Texture2D" uid="uid://cqhsofjui3y4h" path="res://Recursos/Imagens/Cenários/Restaurante Universitário.png" id="2_ayuh8"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cjlok15t65l8v" path="res://Recursos/Personagens/Inimigos/Mobs/Inimigo_4.tscn" id="9_ehse4"]
 [ext_resource type="PackedScene" uid="uid://f4fuarij0nj" path="res://Recursos/Personagens/Inimigos/Mobs/Inimigo_5.tscn" id="10_xemrh"]
 [ext_resource type="PackedScene" uid="uid://dbgitcskjsykr" path="res://Recursos/Personagens/Inimigos/Mobs/Inimigo_6.tscn" id="11_k17vt"]
+[ext_resource type="PackedScene" uid="uid://c23q1k04av5kj" path="res://Recursos/Items/Buffs/Vida.tscn" id="12_l2u64"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7u7q5"]
 size = Vector2(1152, 57)
@@ -84,7 +85,7 @@ position = Vector2(576, 28.5)
 shape = SubResource("RectangleShape2D_7u7q5")
 
 [node name="Componentes extras" type="TextureRect" parent="Elementos do cenário" index="1"]
-z_index = 1
+z_index = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -157,5 +158,17 @@ curve = SubResource("Curve2D_kh3cg")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Área dos personagens/Rota de spawn dos inimigos" index="0"]
 position = Vector2(1136, 72)
+
+[node name="Vida" parent="Área dos personagens" index="9" instance=ExtResource("12_l2u64")]
+position = Vector2(680, 72)
+
+[node name="Vida2" parent="Área dos personagens" index="10" instance=ExtResource("12_l2u64")]
+position = Vector2(824, 72)
+
+[node name="Vida3" parent="Área dos personagens" index="11" instance=ExtResource("12_l2u64")]
+position = Vector2(536, 72)
+
+[node name="Vida4" parent="Área dos personagens" index="12" instance=ExtResource("12_l2u64")]
+position = Vector2(392, 72)
 
 [connection signal="timeout" from="Área dos personagens/Intervalo para o spawn de inimigos" to="." method="_on_intervalo_para_o_spawn_de_inimigos_timeout"]

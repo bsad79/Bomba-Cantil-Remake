@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkg3gdg56gpua"]
+[gd_scene load_steps=13 format=3 uid="uid://dkg3gdg56gpua"]
 
 [ext_resource type="PackedScene" uid="uid://mv2a4da440ao" path="res://Recursos/Fases/fase_raiz.tscn" id="1_2e6v7"]
 [ext_resource type="Script" path="res://Recursos/Fases/Fase 1.gd" id="2_v1d3o"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cruxngj61ctal" path="res://Recursos/Personagens/Jogador/Jogador.tscn" id="4_v4lrd"]
 [ext_resource type="Texture2D" uid="uid://cfd8ueuk8he15" path="res://Recursos/Imagens/Cenários/Portaria Parte 1.png" id="5_uta0n"]
 [ext_resource type="Texture2D" uid="uid://wdsh4q031stv" path="res://Recursos/Imagens/Introução do chefe/Angel is.png" id="7_j870l"]
+[ext_resource type="PackedScene" uid="uid://hfnqxwc0yquf" path="res://Recursos/Items/Buffs/Ataque.tscn" id="8_qb2rq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4sc2i"]
 size = Vector2(33, 106)
@@ -85,7 +86,7 @@ texture = ExtResource("4_esats")
 polygon = PackedVector2Array(1152, 456, 1104, 456, 1104, 416, 928, 416, 928, 456, 896, 456, 888, 432, 888, 416, 704, 416, 704, 456, 448, 456, 368, 312, 368, 136, 248, 136, 176, 136, 96, 0, 1152, 0)
 
 [node name="Componentes extras" type="TextureRect" parent="Elementos do cenário" index="1"]
-z_index = 1
+z_index = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -106,6 +107,9 @@ scale = Vector2(0.5, 0.5)
 [node name="Angel is" parent="Área dos personagens" index="1" instance=ExtResource("3_yyqgg")]
 position = Vector2(1056, 576)
 scale = Vector2(0.5, 0.5)
+
+[node name="Ataque" parent="Área dos personagens" index="2" instance=ExtResource("8_qb2rq")]
+position = Vector2(264, 336)
 
 [node name="Control" type="Control" parent="." index="5"]
 visible = false
